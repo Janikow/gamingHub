@@ -2,49 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Game Launcher</title>
+  <title>Game Hub</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #111;
       padding: 20px;
     }
 
-    button {
-      display: block;
-      width: 200px;
-      margin: 10px 0;
-      padding: 12px;
-      font-size: 16px;
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .game-grid a {
+      text-decoration: none;
+    }
+
+    .game-button {
+      background: #222;
+      color: white;
+      padding: 14px 10px;
+      text-align: center;
+      border-radius: 8px;
+      border: 2px solid #333;
       cursor: pointer;
+      transition: 0.2s;
+      font-size: 14px;
+    }
+
+    .game-button:hover {
+      background: #00b3ff;
+      color: black;
+      border-color: #00b3ff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .game-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .game-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Select a Game</h1>
-  <div id="game-list"></div>
+  <div class="game-grid">
 
-  <script>
-    fetch("games.json")
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById("game-list");
+    <a href="games/1v1lol"><div class="game-button">1v1lol</div></a>
+    <a href="games/2048"><div class="game-button">2048</div></a>
+    <a href="games/adarkroom"><div class="game-button">adarkroom</div></a>
+    <a href="games/asciispace"><div class="game-button">asciispace</div></a>
+    <a href="games/assessmentexamination"><div class="game-button">assessmentexamination</div></a>
+    <a href="games/asteroids"><div class="game-button">asteroids</div></a>
+    <a href="games/astray"><div class="game-button">astray</div></a>
+    <a href="games/backcountry"><div class="game-button">backcountry</div></a>
+    <a href="games/baldisbasics"><div class="game-button">baldisbasics</div></a>
+    <a href="games/basketballlegends"><div class="game-button">basketballlegends</div></a>
 
-        data.games.forEach(game => {
-          const button = document.createElement("button");
-          button.textContent = game.name;
+    <!-- Keep repeating the same pattern for the rest -->
+    <!-- <a href="games/NAME"><div class="game-button">NAME</div></a> -->
 
-          button.onclick = () => {
-            window.location.href = game.path;
-          };
-
-          container.appendChild(button);
-        });
-      })
-      .catch(error => {
-        console.error("Error loading games.json:", error);
-      });
-  </script>
+  </div>
 
 </body>
 </html>
