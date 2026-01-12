@@ -32,6 +32,25 @@ body {
       border-color: #00b3ff;
     }
 
+
+      .menu-button {
+      background: #5d0575;
+      color: white;
+      padding: 14px 10px;
+      text-align: center;
+      border-radius: 8px;
+      border: 2px solid #333;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 14px;
+    }
+
+    .menu-button:hover {
+      background: #00b3ff;
+      color: black;
+      border-color: #00b3ff;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .game-grid {
