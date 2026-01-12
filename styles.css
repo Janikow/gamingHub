@@ -61,11 +61,10 @@
     }
 
 body {
- color: #e5e7eb;
- background-color: #111827;
- display: flex;
- align-items: center;
- justify-content: center;
+  color: #e5e7eb;
+  background-color: #111827;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 .typey::after {
@@ -81,4 +80,11 @@ body {
   50% {
     opacity: 0;
   }
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
 }
