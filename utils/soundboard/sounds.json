@@ -1,0 +1,13 @@
+{
+  "sounds": [
+    {
+      "name": "9+10=21",
+      "mp3": "sounds/9+10=21.mp3"
+    },
+    {
+      "name": "A few moments later",
+      "mp3": "sounds/afewmomentslater.mp3"
+    },
+    
+  ]
+}
