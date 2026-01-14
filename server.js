@@ -13,7 +13,13 @@ const io = new Server(server, {
   maxHttpBufferSize: 2 * 1024 * 1024 // 2MB limit
 });
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "chat/public")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "chat/public", "index.html"));
+});
+
+
 
 // Map of socket.id -> { name, ip, socket, port, profilePic, color }
 let users = {};
@@ -293,7 +299,7 @@ io.on("connection", (socket) => {
   }));
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
