@@ -13,11 +13,14 @@ const io = new Server(server, {
   maxHttpBufferSize: 2 * 1024 * 1024 // 2MB limit
 });
 
-app.use(express.static(path.join(__dirname, "chat/public")));
+// Serve chat page and assets under /chat
+app.use("/chat", express.static(path.join(__dirname, "chat/public")));
 
+// Root route (home menu)
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
+
 
 
 
