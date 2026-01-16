@@ -1,131 +1,255 @@
-/* Global Reset */
-* {
+/* =========================
+   CSS VARIABLES (THEME)
+========================= */
+:root {
+  --bg-main: #0b0b0b;
+  --bg-panel: #111;
+  --bg-panel-soft: #151515;
+
+  --accent: #00ffb4;
+  --accent-soft: rgba(0, 255, 180, 0.25);
+
+  --text-main: #e6e6e6;
+  --text-muted: #b5b5b5;
+
+  --border-soft: #2a2a2a;
+  --border-strong: #3a3a3a;
+
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 25px rgba(0, 255, 180, 0.18);
+
+  --ease-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
 }
 
-/* Page Background */
+html {
+  font-size: 16px;
+}
+
 body {
-  background: #0d0d0d;
-  color: #e6e6e6;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at top, #141414, var(--bg-main) 60%);
+  color: var(--text-main);
+
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
 }
 
-/* Container */
+/* =========================
+   MAIN CONTAINER
+========================= */
 .container {
   text-align: center;
-  padding: 40px;
-  background: #111;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-  animation: fadeIn 0.8s ease-out;
+  padding: 42px 46px;
+
+  background: linear-gradient(
+    180deg,
+    var(--bg-panel-soft),
+    var(--bg-panel)
+  );
+
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+
+  box-shadow: var(--shadow-soft);
+  animation: fadeInUp 0.8s var(--ease-smooth) both;
 }
 
-/* Title */
+/* =========================
+   TITLE
+========================= */
 .typey {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-  color: #f2f2f2;
-  animation: slideDown 0.7s ease-out;
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+
+  color: #f5f5f5;
+  text-transform: uppercase;
+
+  animation: slideDown 0.7s var(--ease-smooth) both;
 }
 
-/* Paragraph */
+/* =========================
+   PARAGRAPH
+========================= */
 .container p {
-  margin-bottom: 25px;
-  color: #bfbfbf;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
 }
 
-/* Menu Buttons */
+/* =========================
+   MENU BUTTONS
+========================= */
 .menu-button {
-  background: #1a1a1a;
-  color: #e6e6e6;
-  padding: 14px 22px;
-  margin: 12px auto;
   width: 220px;
-  border-radius: 10px;
-  font-size: 1.2rem;
+  margin: 12px auto;
+  padding: 15px 22px;
+
+  background: linear-gradient(
+    180deg,
+    #1a1a1a,
+    #121212
+  );
+
+  color: var(--text-main);
+  font-size: 1.15rem;
+  border-radius: var(--radius-md);
+
+  border: 1px solid var(--border-soft);
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  border: 1px solid #333;
+
+  transition:
+    transform 0.25s var(--ease-smooth),
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
-/* Hover Effects */
 .menu-button:hover {
-  transform: translateY(-6px) scale(1.03);
-  background: #262626;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px) scale(1.04);
+  background: linear-gradient(180deg, #242424, #191919);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.14);
 }
 
-/* Click Animation */
 .menu-button:active {
   transform: scale(0.96);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Keyboard Accessibility */
+.menu-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-soft);
 }
 
-/* Slide-down Animation */
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Game Grid Layout */
+/* =========================
+   GAME GRID
+========================= */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 18px;
-  padding: 30px;
+  gap: 20px;
+
+  padding: 32px;
   max-width: 1100px;
   margin: 0 auto;
-  animation: fadeIn 0.8s ease-out;
+
+  animation: fadeInUp 0.9s var(--ease-smooth) both;
 }
 
-/* Game Buttons */
+/* =========================
+   GAME BUTTONS
+========================= */
 .game-button {
-  background: #141414;
-  color: #e6e6e6;
-  padding: 16px;
-  border-radius: 8px;
+  padding: 18px;
+
+  background: linear-gradient(
+    180deg,
+    #161616,
+    #101010
+  );
+
+  color: var(--text-main);
   text-align: center;
   font-size: 1.05rem;
+
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
   cursor: pointer;
-  border: 1px solid #2a2a2a;
-  transition: 
-    transform 0.22s cubic-bezier(.25,.8,.25,1),
+
+  transition:
+    transform 0.22s var(--ease-smooth),
     box-shadow 0.25s ease,
     background 0.25s ease,
     border-color 0.25s ease;
-  animation: buttonPulse 1.2s ease-out;
+
+  animation: buttonPulse 0.9s var(--ease-smooth) both;
 }
 
-/* Hover Effects */
 .game-button:hover {
-  transform: translateY(-7px) scale(1.04);
-  background: #1c1c1c;
-  border-color: #444;
-  box-shadow: 0 0 22px rgba(0, 255, 180, 0.18);
+  transform: translateY(-7px) scale(1.05);
+  background: linear-gradient(180deg, #1f1f1f, #161616);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
 }
 
-/* Click Effect */
 .game-button:active {
   transform: scale(0.95);
   box-shadow: 0 0 12px rgba(0, 255, 180, 0.12);
 }
 
-/* Pulse Animation */
+.game-button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--accent-soft),
+    var(--shadow-glow);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes buttonPulse {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   REDUCED MOTION SUPPORT
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

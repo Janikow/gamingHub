@@ -1,0 +1,131 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Page Background */
+body {
+  background: #0d0d0d;
+  color: #e6e6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  padding: 40px;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Title */
+.typey {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: #f2f2f2;
+  animation: slideDown 0.7s ease-out;
+}
+
+/* Paragraph */
+.container p {
+  margin-bottom: 25px;
+  color: #bfbfbf;
+  font-size: 1.1rem;
+}
+
+/* Menu Buttons */
+.menu-button {
+  background: #1a1a1a;
+  color: #e6e6e6;
+  padding: 14px 22px;
+  margin: 12px auto;
+  width: 220px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  border: 1px solid #333;
+}
+
+/* Hover Effects */
+.menu-button:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: #262626;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+}
+
+/* Click Animation */
+.menu-button:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide-down Animation */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Game Grid Layout */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Game Buttons */
+.game-button {
+  background: #141414;
+  color: #e6e6e6;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border: 1px solid #2a2a2a;
+  transition: 
+    transform 0.22s cubic-bezier(.25,.8,.25,1),
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+  animation: buttonPulse 1.2s ease-out;
+}
+
+/* Hover Effects */
+.game-button:hover {
+  transform: translateY(-7px) scale(1.04);
+  background: #1c1c1c;
+  border-color: #444;
+  box-shadow: 0 0 22px rgba(0, 255, 180, 0.18);
+}
+
+/* Click Effect */
+.game-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 12px rgba(0, 255, 180, 0.12);
+}
+
+/* Pulse Animation */
+@keyframes buttonPulse {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
